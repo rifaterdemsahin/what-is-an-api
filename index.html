@@ -123,7 +123,17 @@
         background: var(--card);
         border: 1px solid var(--border);
         border-radius: 16px;
-        padding: 24px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      .info-card img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        margin-bottom: 16px;
       }
       .info-card h2 {
         font-size: 1.15rem;
@@ -194,6 +204,7 @@
 
       <section class="grid">
         <div class="info-card">
+          <img src="assets/restaurant-analogy.jpg" alt="API Restaurant Waiter Analogy" />
           <h2>1. The Restaurant Analogy</h2>
           <p>
             You (the <strong>Client</strong>) look at a menu and give an order to the
@@ -204,6 +215,7 @@
         </div>
 
         <div class="info-card">
+          <img src="assets/http-request-response.jpg" alt="HTTP Request and JSON Response" />
           <h2>2. Request &amp; Response</h2>
           <p>
             Under the hood, your app sends a structured HTTP request and receives
@@ -216,6 +228,7 @@
         </div>
 
         <div class="info-card">
+          <img src="assets/api-real-world.jpg" alt="Real-World API Examples" />
           <h2>3. Used Everywhere</h2>
           <p>
             Weather apps, Google Maps embeds, Stripe/PayPal checkouts, and "Sign in
