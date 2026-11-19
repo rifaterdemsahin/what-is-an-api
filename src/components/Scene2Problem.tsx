@@ -33,7 +33,7 @@ export const Scene2Problem: React.FC = () => {
     config: { damping: 14, stiffness: 90 },
   });
 
-  const fadeOut = interpolate(frame, [130, 150], [1, 0], {
+  const fadeOut = interpolate(frame, [190, 210], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

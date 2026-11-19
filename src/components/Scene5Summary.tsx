@@ -1,8 +1,10 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -57,6 +59,18 @@ export const Scene5Summary: React.FC = () => {
         alignItems: "center",
       }}
     >
+      <Img
+        src={staticFile("assets/api-real-world.jpg")}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.18,
+          pointerEvents: "none",
+        }}
+      />
       <div
         style={{
           opacity: headerOpacity,

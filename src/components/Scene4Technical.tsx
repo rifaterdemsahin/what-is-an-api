@@ -1,8 +1,10 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -38,7 +40,7 @@ export const Scene4Technical: React.FC = () => {
     config: { damping: 12, stiffness: 130 },
   });
 
-  const fadeOut = interpolate(frame, [190, 210], [1, 0], {
+  const fadeOut = interpolate(frame, [250, 270], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -52,6 +54,18 @@ export const Scene4Technical: React.FC = () => {
         opacity: fadeOut * enter,
       }}
     >
+      <Img
+        src={staticFile("assets/http-request-response.jpg")}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.18,
+          pointerEvents: "none",
+        }}
+      />
       <div
         style={{
           fontSize: 24,

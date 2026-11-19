@@ -1,8 +1,10 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -43,7 +45,7 @@ export const Scene3Analogy: React.FC = () => {
     "4. Waiter (API) returns the Response!",
   ];
 
-  const fadeOut = interpolate(frame, [220, 240], [1, 0], {
+  const fadeOut = interpolate(frame, [235, 255], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -60,6 +62,18 @@ export const Scene3Analogy: React.FC = () => {
         opacity: fadeOut * intro,
       }}
     >
+      <Img
+        src={staticFile("assets/restaurant-analogy.jpg")}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.18,
+          pointerEvents: "none",
+        }}
+      />
       {/* Title */}
       <div style={{ textAlign: "center" }}>
         <div

@@ -1,0 +1,12 @@
+node_modules
+.git
+.github
+src
+package.json
+package-lock.json
+tsconfig.json
+remotion.config.ts
+README.md
+fly.toml
+Dockerfile
+.dockerignore
