@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is an API? — Visual Explainer</title>
+    <style>
+      :root {
+        --bg: #0b0f19;
+        --card: #131a2a;
+        --card-light: #1a2338;
+        --border: #263352;
+        --primary: #38bdf8;
+        --secondary: #818cf8;
+        --accent: #34d399;
+        --warning: #fbbf24;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 40px 24px 80px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .badge {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.12);
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      h1 span {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 1.1rem;
+        margin-top: 8px;
+      }
+      .player-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        margin-bottom: 24px;
+      }
+      video {
+        width: 100%;
+        border-radius: 12px;
+        display: block;
+        background: #000;
+        aspect-ratio: 16 / 9;
+      }
+      .chapters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .chapter-btn {
+        background: var(--card-light);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 14px;
+        color: var(--text);
+        text-align: left;
+        cursor: pointer;
+        transition: border-color 0.2s, transform 0.15s;
+      }
+      .chapter-btn:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .chapter-btn .time {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+        color: var(--primary);
+        font-weight: 700;
+      }
+      .chapter-btn .label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 2px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 36px;
+      }
+      .info-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+      }
+      .info-card h2 {
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+      .info-card p {
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+      .code {
+        margin-top: 12px;
+        background: #090d16;
+        border-radius: 10px;
+        padding: 12px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 13px;
+        color: var(--accent);
+        overflow-x: auto;
+      }
+      footer {
+        text-align: center;
+        margin-top: 48px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="badge">Application Programming Interface</div>
+        <h1>What is an <span>API</span>?</h1>
+        <p class="subtitle">
+          A visual explanation of how software communicates using requests and responses.
+        </p>
+      </header>
+
+      <div class="player-card">
+        <video id="apiVideo" controls playsinline preload="metadata">
+          <source src="what-is-an-api.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+
+        <div class="chapters">
+          <button class="chapter-btn" onclick="seekTo(0)">
+            <div class="time">00:00</div>
+            <div class="label">1. Intro: What is an API?</div>
+          </button>
+          <button class="chapter-btn" onclick="seekTo(5)">
+            <div class="time">00:05</div>
+            <div class="label">2. Why We Need APIs</div>
+          </button>
+          <button class="chapter-btn" onclick="seekTo(10)">
+            <div class="time">00:10</div>
+            <div class="label">3. Restaurant Waiter Analogy</div>
+          </button>
+          <button class="chapter-btn" onclick="seekTo(18)">
+            <div class="time">00:18</div>
+            <div class="label">4. HTTP Request &amp; JSON</div>
+          </button>
+          <button class="chapter-btn" onclick="seekTo(25)">
+            <div class="time">00:25</div>
+            <div class="label">5. Real-World Examples</div>
+          </button>
+        </div>
+      </div>
+
+      <section class="grid">
+        <div class="info-card">
+          <h2>1. The Restaurant Analogy</h2>
+          <p>
+            You (the <strong>Client</strong>) look at a menu and give an order to the
+            <strong>Waiter (the API)</strong>. The waiter takes your request to the
+            <strong>Kitchen (the Server)</strong> and brings back your food (the
+            <strong>Response</strong>).
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h2>2. Request &amp; Response</h2>
+          <p>
+            Under the hood, your app sends a structured HTTP request and receives
+            structured data (usually JSON) back:
+          </p>
+          <div class="code">
+            GET /v1/weather?city=London<br />
+            → 200 OK {"temp": "18°C", "condition": "Sunny"}
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>3. Used Everywhere</h2>
+          <p>
+            Weather apps, Google Maps embeds, Stripe/PayPal checkouts, and "Sign in
+            with Google" all rely on APIs to exchange data safely without exposing
+            internal databases.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        Built with Remotion &bull; Deployed to <code>index.html</code>
+      </footer>
+    </div>
+
+    <script>
+      function seekTo(seconds) {
+        const video = document.getElementById("apiVideo");
+        video.currentTime = seconds;
+        video.play();
+      }
+    </script>
+  </body>
+</html>
